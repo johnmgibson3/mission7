@@ -1,0 +1,7 @@
+.idea/
+bin/
+obj/
+.vs/
+*.user
+*.suo
+mission07/wwwroot/lib/
