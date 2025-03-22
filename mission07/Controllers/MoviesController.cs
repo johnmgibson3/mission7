@@ -30,5 +30,15 @@ namespace mission07.Controllers
             return View(movie); // Reload form if invalid
         }
         
+        
+        public IActionResult Collection()
+        {
+            // Linq
+            var collection = _context.Movies
+                
+                .OrderBy(x => x.MovieId).ToList();
+            return View(collection);
+        }
+        
     }
 }

@@ -1,16 +1,49 @@
 @{
     ViewData["Title"] = "See All My Films";
 }
+@model List<Movie>
 
-<!DOCTYPE html>
+<table class="table table-bordered">
+    <thead class="fw-bold">
+    <tr>
+        <td>Movie Id</td>
+        <td>Title</td>
+        <td>Year</td>
+        <td>Director</td>
+        <td>Genre</td>
+        <td>Rating</td>
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      what is going on
-</div>
-</body>
-</html>
+    </tr>
+
+
+    </thead>
+    @* razor code *@
+    @if (Model != null)
+    {
+    foreach (var x in Model)
+    {
+        <tbody>
+        <tr>
+
+            <td>@x.MovieId</td>
+            <td>@x.Title</td>
+            <td>@x.Year</td>
+            <td>@x.Director</td>
+            <td>@x.Genre</td>
+            <td>@x.Rating</td>
+          
+
+            @* Put x.applicationid after asp-route-id, will enter app id as the ?id paramter in url  *@
+            <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.MovieId">Edit</a></td>
+            <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.MovieId">Delete</a></td>
+        </tr>
+
+        </tbody>
+    }
+    }
+    else
+    {
+        <p>No data to display.</p>
+    }
+
+</table>
