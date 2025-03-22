@@ -4,8 +4,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // ✅ Register ApplicationDbContext **before** building the app
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<JoelHiltonMovieCollectionContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("ConnectionStrings:DefaultConnection")));
 
 builder.Services.AddControllersWithViews();
 
